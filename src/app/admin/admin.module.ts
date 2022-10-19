@@ -8,26 +8,26 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdminMenuComponent } from './admin/admin-menu/admin-menu.component';
 import { UserService } from './admin/adminShared/user.service';
 
-const AdminRoutes: Routes = [
-  {
-    path: 'admin',
-    component: AdminComponent,
-    children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignUpComponent},
-      { path: '', component: AdminMenuComponent, canActivate: [UserService]}
-    ]
-  },
-];
+// const AdminRoutes: Routes = [
+//   {
+//     path: 'admin',
+//       component: AdminComponent,
+//     children: [
+//       { path: 'login', component: LoginComponent },
+//       { path: 'signup', component: SignUpComponent},
+//       { path: '', component: AdminMenuComponent, canActivate: [UserService]}
+//     ]
+//   },
+// ];
 @NgModule({
   imports: [
-    RouterModule.forChild(AdminRoutes),
+   // RouterModule.forChild(AdminRoutes),
     CommonModule,
     FormsModule
 
   ],
   exports: [
-    RouterModule
+   // RouterModule
   ],
   declarations: [
     AdminComponent,
