@@ -10,16 +10,20 @@ from '@angular/router';
 export class UserService implements CanActivate {
   userLoggedIn: boolean = false;
 
-  constructor( private router: Router){}
+  constructor( private router: Router ){}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string= state.url;
+    let url: string = state.url;
     return this.verifyLogin(url);
   }
 
   verifyLogin(url: string):boolean {
-    if(this.userLoggedIn) {return true;}
-    this.router.navigate(['/admin/login'])
-    return false;
+    if(this.userLoggedIn) {
+      return true;
+    } else {
+      this.router.navigate(['/admin/login'])
+      return false;
+    }
+
   }
 }

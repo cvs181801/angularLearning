@@ -14,16 +14,17 @@ const AdminRoutes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'signp', component: SignUpComponent},
+      { path: 'signup', component: SignUpComponent},
       { path: '', component: AdminMenuComponent, canActivate: [UserService]}
     ]
   },
 ];
 @NgModule({
   imports: [
+    RouterModule.forChild(AdminRoutes),
     CommonModule,
-    FormsModule,
-    RouterModule.forChild(AdminRoutes)
+    FormsModule
+
   ],
   exports: [
     RouterModule

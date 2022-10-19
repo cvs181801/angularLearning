@@ -6,10 +6,6 @@ import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
-import { AdminComponent } from './admin/admin/admin.component';
-import { SignUpComponent } from './admin/sign-up/sign-up.component';
-import { LoginComponent } from './admin/login/login.component';
-import { AdminMenuComponent } from './admin/admin/admin-menu/admin-menu.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
@@ -19,16 +15,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     ErrorComponent,
     HomeComponent,
     StartComponent,
-    AdminComponent,
-    SignUpComponent,
-    LoginComponent,
 
     NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    AdminModule
+    AdminModule, // this has to be placed before the approuting module, otherwise only the routes at the root will run. aka 'top down first match' policy.
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

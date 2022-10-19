@@ -1,7 +1,21 @@
 <div>
   <ul>
-    <li><a>Menu Item 1</a></li>
-    <li><a>Menu Item 2</a></li>
-    <li><a>Menu Item 3</a></li>
+
+    <li>
+      <a [routerLink]="['']">Home</a>
+    </li>
+
+    <li>
+      <a [routerLink]="['/admin']" routerLinkActive="active" ariaCurrentWhenActive="page">Admin</a>
+    </li>
+
+    <li>
+      <a>Shop</a>
+    </li>
+
+    <li>
+      <a>Cart</a>
+    </li>
+
   </ul>
 </div>
