@@ -6,7 +6,9 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdminMenuComponent } from './admin/admin-menu/admin-menu.component';
-import { UserService } from './admin/adminShared/user.service';
+import { UserService } from './login/adminShared/user.service';
+import { ShopComponent } from './shop/shop.component';
+import { CartComponent } from './cart/cart.component';
 
 // const AdminRoutes: Routes = [
 //   {
@@ -33,7 +35,9 @@ import { UserService } from './admin/adminShared/user.service';
     AdminComponent,
     AdminMenuComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ShopComponent,
+    CartComponent
   ],
   providers: [
     UserService
