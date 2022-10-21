@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
@@ -9,20 +9,25 @@ import { StartComponent } from './start/start.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
+//import { AngularFireModule } from '@angular/fire';
+//import { AngularFireDatabaseModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
     ErrorComponent,
     HomeComponent,
     StartComponent,
-
     NavbarComponent
   ],
   imports: [
     BrowserModule,
     AdminModule, // this has to be placed before the approuting module, otherwise only the routes at the root will run. aka 'top down first match' policy.
-    AppRoutingModule
-
+    AppRoutingModule,
+    FormsModule
+    //AngularFireModule.initializeApp(environment.firebaseConfig),
+    //AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,13 +15,19 @@ export class UserService implements CanActivate {
 
   constructor( private router: Router ){}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
-    let url: string = state.url;
+  //canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
+    canActivate():boolean {
+    //let url: string = state.url;
+    if(localStorage.getItem('username')) {
+      this.userLoggedIn = true;
+    } else {
+      this.userLoggedIn = false;
+    }
     if(this.userLoggedIn){
-      this.router.navigate(['/shop'])
+      //this.router.navigate(['/shop'])
       return true;
     } else {
-      this.router.navigate(['/login'])
+      //this.router.navigate(['/login'])
       return false;
     }
     //return this.verifyLogin(url, this.formValue, this.formValid);
@@ -29,8 +35,7 @@ export class UserService implements CanActivate {
 
   verifyLogin(url: any, formValue: {username: string, password: string}, formValid: boolean):boolean {
     if(formValid){
-      //localStorage.setItem('username', formValue.username)
-      //localStorage.setItem('password', formValue.password)
+      localStorage.setItem('username', formValue.username)
       this.userLoggedIn = true;
       this.router.navigate(['/shop'])
       return true;

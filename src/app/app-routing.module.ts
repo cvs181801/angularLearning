@@ -6,22 +6,21 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
 import { SignUpComponent } from './admin/sign-up/sign-up.component';
 import { AdminMenuComponent } from './admin/admin/admin-menu/admin-menu.component';
-import { UserService } from './admin/admin/adminShared/user.service';
+import { ShopComponent } from './admin/shop/shop.component';
+import { CartComponent } from './admin/cart/cart.component';
+import { UserService } from './admin/login/adminShared/user.service';
 
 const routes: Routes = [
+  //{ path: 'admin', component: AdminComponent, },
 
-  {
-    path: 'admin',
-      component: AdminComponent,
-      children: [
-        { path: 'login', component: LoginComponent },
-        { path: 'signup', component: SignUpComponent},
-        { path: '', component: AdminMenuComponent, canActivate: [UserService]}
-      ]
-  },
+  //{ path: 'login', component: LoginComponent},
+  { path: 'cart', component: CartComponent, canActivate: [UserService]},
+  { path: 'shop', component: ShopComponent, canActivate: [UserService]},
+  //{ path: 'cart', component: CartComponent},
+  //{ path: 'shop', component: ShopComponent},
+  { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: ErrorComponent }
-
 ];
 
 @NgModule({
