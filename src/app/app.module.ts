@@ -8,8 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-//import { AngularFireModule } from '@angular/fire';
-//import { AngularFireDatabaseModule } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { LogoutComponent } from './logout/logout.component';
 
@@ -26,8 +25,8 @@ import { LogoutComponent } from './logout/logout.component';
     BrowserModule,
     AdminModule, // this has to be placed before the approuting module, otherwise only the routes at the root will run. aka 'top down first match' policy.
     AppRoutingModule,
-    FormsModule
-    //AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     //AngularFireDatabaseModule
   ],
   providers: [],
