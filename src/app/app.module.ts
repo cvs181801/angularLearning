@@ -8,10 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-
 //import { AngularFireModule } from '@angular/fire';
 //import { AngularFireDatabaseModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { environment } from '../environments/environment';
     ErrorComponent,
     HomeComponent,
     StartComponent,
-    NavbarComponent
+    NavbarComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

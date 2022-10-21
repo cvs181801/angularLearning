@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot }
-from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 //import * as firebase from 'firebase';
 
 @Injectable()
@@ -33,7 +28,7 @@ export class UserService implements CanActivate {
     //return this.verifyLogin(url, this.formValue, this.formValid);
   }
 
-  verifyLogin(url: any, formValue: {username: string, password: string}, formValid: boolean):boolean {
+  verifyLogin(formValue: {username: string, password: string}, formValid: boolean):boolean {
     if(formValid){
       localStorage.setItem('username', formValue.username)
       this.userLoggedIn = true;
@@ -44,5 +39,14 @@ export class UserService implements CanActivate {
       this.router.navigate(['/login'])
       return false;
     }
+  }
+
+  logout(){
+      if(localStorage.getItem('username')) {
+        localStorage.removeItem('username')
+        this.userLoggedIn = false;
+      } else {
+        this.userLoggedIn = true;
+      } 
   }
 }
