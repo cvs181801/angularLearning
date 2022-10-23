@@ -13,6 +13,7 @@ export const environment = {
     appId: "1:674332014626:web:ffe17bca77187a005eb27b",
     measurementId: "G-NF3PHRHE81"
   }
+  
 };
 
 /*

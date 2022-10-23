@@ -8,9 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { LogoutComponent } from './logout/logout.component';
+
+import { AngularFireModule } from '@angular/fire';
+//import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+//import { AngularFireDatabaseModule } from '@angular/fire/compat/*';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+///import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,7 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    //AngularFireDatabaseModule
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

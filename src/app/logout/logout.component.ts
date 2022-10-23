@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.sass']
 })
 export class LogoutComponent implements OnInit {
-
+  userLoggedIn = this.userService.userLoggedIn;
+  
   constructor(private userService: UserService, private router: Router) { }
 
   clickToLogout() {

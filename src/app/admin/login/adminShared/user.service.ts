@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-//import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class UserService implements CanActivate {
@@ -8,7 +8,9 @@ export class UserService implements CanActivate {
   formValue: {username: string, password: string}; ///need to save the values coming in fro mthe login form
   formValid: boolean;
 
-  constructor( private router: Router ){}
+  constructor( private router: Router ){
+    
+  }
 
   //canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
     canActivate():boolean {

@@ -1,18 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import * as firebase from 'firebase/app'
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+  template: `
+  <h1>{{ (item | async)?.name }}</h1>
+  `,
 })
 export class AppComponent implements OnInit{
   title = 'angularlearning';
 
+  item: Observable<any>;
+  constructor(db: AngularFireDatabaseModule) {
+    //this.item = db.object('item').valueChanges();
+    console.log('db', db)
+  }
+
   ngOnInit(): void {
    console.log('AngularFireModule', AngularFireModule)
    console.log('firebase', firebase)
+   console.log('AngularFireDatabaseModule', AngularFireDatabaseModule)
   }
 }
 //1. I skipped the forchild routes because I didn't see evidence that we're using them in prl or ros frontened 
@@ -22,6 +35,7 @@ export class AppComponent implements OnInit{
 //there is a way to switch the node version you're using in a specific project only by downloading an nvm script locally so you can run 
 //an nvm command in bash terminal.  however, for simpliciy sake, developing this on my mac so I can avoid needing 
 //to deal with nvm on windows.
+//I had to install specific versions of node, angular cli and firebase to get around a dependency conflict.
 
 //3. Re: Observables in angular.  Observables are declarative —that is, you define a function for publishing values, 
 //but it is not executed until a consumer subscribes to it. The subscribed consumer then receives notifications 
