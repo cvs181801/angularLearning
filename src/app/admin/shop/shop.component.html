@@ -1,1 +1,6 @@
-<p>shop works!</p>
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div>
+        <label>name</label>
+            <input type="text" formControlName="name" placeholder="full name" required>
+    </div>

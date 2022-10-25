@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    console.log('student list', this.userService.getStudentList())
 
   }
 

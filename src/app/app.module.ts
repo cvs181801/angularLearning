@@ -12,10 +12,8 @@ import { environment } from '../environments/environment';
 import { LogoutComponent } from './logout/logout.component';
 
 import { AngularFireModule } from '@angular/fire';
-//import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-//import { AngularFireDatabaseModule } from '@angular/fire/compat/*';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-///import { AngularFireDatabase } from '@angular/fire/database';
 
 
 @NgModule({
@@ -33,6 +31,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
   providers: [],

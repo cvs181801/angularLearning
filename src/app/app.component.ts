@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import * as firebase from 'firebase/app'
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireDatabase } from '@angular/fire/database';
+//import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit{
    console.log('AngularFireModule', AngularFireModule)
    console.log('firebase', firebase)
    console.log('AngularFireDatabaseModule', AngularFireDatabaseModule)
+   console.log('AngularFirestoreModule', AngularFirestoreModule)
   }
 }
 //1. I skipped the forchild routes because I didn't see evidence that we're using them in prl or ros frontened 
@@ -36,6 +38,9 @@ export class AppComponent implements OnInit{
 //an nvm command in bash terminal.  however, for simpliciy sake, developing this on my mac so I can avoid needing 
 //to deal with nvm on windows.
 //I had to install specific versions of node, angular cli and firebase to get around a dependency conflict.
+
+//** need to upload angular TS files into dev tools */
+//**need to figure out how to access the blog system from firebaseDB */
 
 //3. Re: Observables in angular.  Observables are declarative —that is, you define a function for publishing values, 
 //but it is not executed until a consumer subscribes to it. The subscribed consumer then receives notifications 
