@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+//import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -25,7 +26,8 @@ import { CartComponent } from './cart/cart.component';
   imports: [
    // RouterModule.forChild(AdminRoutes),
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   exports: [

@@ -1,6 +1,33 @@
+Add a Student
 <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" novalidate>
 
     <div>
         <label>name</label>
             <input type="text" formControlName="name" placeholder="full name" required>
     </div>
+    <div>
+        <label>email</label>
+            <input type="email" formControlName="email" placeholder="email" required>
+    </div>
+    <div>
+        <label>course</label>
+            <select formControlName="course" placeholder="" required>
+                <option value="number1">number1</option>
+                <option value="number2">number2</option>
+                <option value="number1andnumber2">number1andnumber2</option>
+            </select>
+    </div>
+    <button type="submit" [disabled]="!studentForm.valid">Add</button>
+</form>
+
+Update An Existing Student's Info
+<!--get student info and render it in a list with a button to edit or delete each-->
+<!-- <div *ngFor="student of students">
+    <p>{{student.name}}</p>
+    <p>{{student.email}}</p>
+    <p>{{student.course}}</p>
+    <button>Edit</button>
+    <button>Delete</button>
+</div> -->
+
+
