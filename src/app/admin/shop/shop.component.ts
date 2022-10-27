@@ -11,17 +11,35 @@ import { Student } from '../login/adminShared/student.model'
 })
 export class ShopComponent implements OnInit {
   public studentForm: FormGroup;
+  public editForm: FormGroup;
+  
   Students: Student[]; 
   updatedStudents: Student[];
   studentsExist: boolean = false;
+  showEditForm: boolean = false;
   
   constructor(public userService: UserService, public formBuilder: FormBuilder) { 
+    // let formArr = [this.studentForm, this.editForm];
+    // formArr.forEach(form=> {form = this.formBuilder.group({
+    //   name: [''],
+    //   email: [''],
+    //   course: [''],
+    //   fees: ['']
+    // })})
+
     this.studentForm = this.formBuilder.group({
-      name: [''],
-      email: [''],
-      course: [''],
-      fees: ['']
-    })
+        name: [''],
+        email: [''],
+        course: [''],
+        fees: ['']
+      })
+
+      this.editForm = this.formBuilder.group({
+        name: [''],
+        email: [''],
+        course: [''],
+        fees: ['']
+      })
   }
 
   ngOnInit(): void {
@@ -32,9 +50,6 @@ export class ShopComponent implements OnInit {
         ...item.payload.doc.data() as {}
          } as Student
       })
-      //console.log('res payload data', res[0].payload.doc.data())
-      //console.log('this.Students', this.Students)
-      
       this.showStudentInfo(this.Students, true)
     })
   }
@@ -50,12 +65,22 @@ export class ShopComponent implements OnInit {
     console.log('student array', this.updatedStudents) 
   } 
 
-  updateStudentInfo() {
-
+  showEdit(){
+    this.showEditForm = !this.showEditForm; 
   }
 
-  deleteStudentInfo() {
-    
+  updateStudentInfo(Student: {id: string; name: string; email: string; course: string; fees: string}) {
+    //if update btn clicked, render a reactive form for just that student where user and add new info
+    //(a way to add a boolean value just for that index of the array?)
+    //OR just open a modal, which takes in the student data for that student
+    //form will need a save btn . when that is clicked, the data should be updated
+    this.userService.updateStudent(Student, Student.id)
+  }
+
+  deleteStudentInfo(Student: {id: string; name: string; email: string; course: string; fees: string}) {
+    if(confirm(`Are you sure you want to delete ${Student.name}?`)){
+      this.userService.deleteStudent(Student);
+    }
   }
 
 }

@@ -54,7 +54,7 @@ export class UserService implements CanActivate {
       } 
   }
 
-  getStudentDoc(id){
+  getStudentDoc(id: string){
     return this.angularFirestore.collection("student-collection").doc(id).valueChanges();
   }
 
@@ -72,12 +72,22 @@ export class UserService implements CanActivate {
     })
   }
   
-  deleteStudent(student){
+  deleteStudent(student: {id: string; name: string; email: string; course: string; fees: string}){
     return this.angularFirestore.collection("student-collection").doc(student.id).delete();
   }
 
   saveStudentInfo(array: Student[], studentsExist: boolean) {
     this.Students = array;
     this.studentsExist = true;
+  }
+
+  updateStudent(student: Student, id: string){
+    this.angularFirestore.collection("student-collection").doc(id).update({
+        name: student.name,
+        email: student.email,
+        course: student.course,
+        fees: student.fees
+      }
+    )
   }
 }

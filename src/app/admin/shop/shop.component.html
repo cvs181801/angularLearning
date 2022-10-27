@@ -20,14 +20,38 @@ Add a Student
     <button type="submit" [disabled]="!studentForm.valid">Add</button>
 </form>
 
-Update An Existing Student's Info
+<h1>Existing Students</h1>
 <ng-container *ngIf="studentsExist, else showThis">
     <div *ngFor="let student of Students">
         <p>{{student.name}}</p>
         <p>{{student.email}}</p>
         <p>{{student.course}}</p>
-        <button (click)="updateStudentInfo()">Edit</button>
-        <button (click)="deleteStudentInfo()">Delete</button>  
+        <button (click)="showEdit()">Edit {{student.name}}</button>
+
+        <div *ngIf="showEditForm">
+            <form [formGroup]="editForm" (ngSubmit)="updateStudentInfo(student)" novalidate>
+                <div>
+                    <label>name</label>
+                        <input type="text" formControlName="name" placeholder="full name" required>
+                </div>
+                <div>
+                    <label>email</label>
+                        <input type="email" formControlName="email" placeholder="email" required>
+                </div>
+                <div>
+                    <label>course</label>
+                        <select formControlName="course" placeholder="" required>
+                            <option value="number1">number1</option>
+                            <option value="number2">number2</option>
+                            <option value="number1andnumber2">number1andnumber2</option>
+                        </select>
+                </div>
+                <button type="submit" [disabled]="!editForm.valid">Update {{student.name}}</button>
+            </form>
+        </div>
+
+        <button (click)="deleteStudentInfo(student)">Delete {{student.name}}</button>  
+
     </div>
 </ng-container>   
 <ng-template #showThis>Loading student data...</ng-template> 
