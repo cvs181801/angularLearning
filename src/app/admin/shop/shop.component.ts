@@ -12,6 +12,7 @@ import { Student } from '../login/adminShared/student.model'
 export class ShopComponent implements OnInit {
   public studentForm: FormGroup;
   Students: Student[]; 
+  updatedStudents: Student[];
   studentsExist: boolean = false;
   
   constructor(public userService: UserService, public formBuilder: FormBuilder) { 
@@ -24,7 +25,7 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getStudentList().subscribe((res)=>{
+    this.userService.getStudentList().subscribe((res: any)=>{
       this.Students = res.map(item => {
       return {
         id: item.payload.doc.id,
@@ -33,8 +34,8 @@ export class ShopComponent implements OnInit {
       })
       //console.log('res payload data', res[0].payload.doc.data())
       //console.log('this.Students', this.Students)
-      this.studentsExist = true;
-      this.showStudentInfo(this.Students, this.studentsExist)
+      
+      this.showStudentInfo(this.Students, true)
     })
   }
 
@@ -44,9 +45,9 @@ export class ShopComponent implements OnInit {
 
   showStudentInfo(array: Student[], studentsExist: boolean) {
     this.userService.saveStudentInfo(array, studentsExist)
-    this.Students = this.userService.Students;
+    this.updatedStudents = this.userService.Students;
     this.studentsExist = this.userService.studentsExist;
-    console.log('student array', this.Students) 
+    console.log('student array', this.updatedStudents) 
   } 
 
   updateStudentInfo() {
