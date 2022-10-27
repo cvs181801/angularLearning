@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import * as firebase from 'firebase/app';
+//import * as firebase from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Student } from './student.model';
 
@@ -9,10 +9,10 @@ export class UserService implements CanActivate {
   userLoggedIn: boolean = false;
   formValue: {username: string, password: string}; ///need to save the values coming in fro mthe login form
   formValid: boolean;
+  Students: Student[]; 
+  studentsExist: boolean = false;
 
-  constructor( private router: Router, private angularFirestore: AngularFirestore ){
-    
-  }
+  constructor( private router: Router, private angularFirestore: AngularFirestore ){}
 
   //canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
     canActivate():boolean {
@@ -74,5 +74,10 @@ export class UserService implements CanActivate {
   
   deleteStudent(student){
     return this.angularFirestore.collection("student-collection").doc(student.id).delete();
+  }
+
+  saveStudentInfo(array: Student[], studentsExist: boolean) {
+    this.Students = array;
+    this.studentsExist = true;
   }
 }

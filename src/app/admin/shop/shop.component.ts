@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../login/adminShared/user.service';
-import { Student } from './student.model'
+import { Student } from '../login/adminShared/student.model'
 
 @Component({
   selector: 'app-shop',
@@ -21,7 +21,6 @@ export class ShopComponent implements OnInit {
       course: [''],
       fees: ['']
     })
-
   }
 
   ngOnInit(): void {
@@ -29,30 +28,26 @@ export class ShopComponent implements OnInit {
       this.Students = res.map(item => {
       return {
         id: item.payload.doc.id,
-        name: 'test',
-        email: 'test',
-        course: 'test',
-        fees: 'test'
-        //  ...item.payload.doc.data() as {}
+        ...item.payload.doc.data() as {}
          } as Student
-      },
-      this.showStudentInfo(this.Students)
-      )
-      console.log('res payload data', res[0].payload.doc.data())
+      })
+      //console.log('res payload data', res[0].payload.doc.data())
+      //console.log('this.Students', this.Students)
+      this.studentsExist = true;
+      this.showStudentInfo(this.Students, this.studentsExist)
     })
-
   }
 
   onSubmit() {
     this.userService.createStudent(this.studentForm.value);
   }
 
-  showStudentInfo(array: any): void {
-    this.Students = array;
-    this.studentsExist = true;
-    console.log('student array', array)
-  } //the method is running but then the variables are getting reverted back to undefined. why?, 
-  //well nm, now I don't see anything except undifined getting saved in the array
+  showStudentInfo(array: Student[], studentsExist: boolean) {
+    this.userService.saveStudentInfo(array, studentsExist)
+    this.Students = this.userService.Students;
+    this.studentsExist = this.userService.studentsExist;
+    console.log('student array', this.Students) 
+  } 
 
   updateStudentInfo() {
 
