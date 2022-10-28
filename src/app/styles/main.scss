@@ -2,7 +2,36 @@
 @import 'base/functions.scss';
 @import 'base/reset';
 
-.foo {
+.home-title {
+    color: white;
+    font-family: $font-primary;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    text-shadow: whitesmoke 2px 0 10px;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $aqua-airy, 
+        0 0 30px $aqua-airy, 0 0 40px $aqua-airy, 0 0 55px $aqua-airy, 0 0 75px $aqua-airy;
+    padding: 1.5em;
+}
+
+.home-background {
+    background-image: url("../images/mallsoft1.jpeg");
+    background-color: $aqua;
+    height: 100vh;
+}
+
+.home-p {
+    font-family: $font-primary;
+    color: white;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    text-shadow: whitesmoke 2px 0 10px;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $aqua-airy, 
+        0 0 30px $aqua-airy, 0 0 40px $aqua-airy, 0 0 55px $aqua-airy, 0 0 75px $aqua-airy;
+    padding: 1.5em;
+    line-height: 2em;
+}
+
+.button-login {
     font-size: $font-size-sm;
     color: $red-watermelon;
     font-family: $font-primary;

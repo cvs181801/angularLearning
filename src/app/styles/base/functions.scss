@@ -1,3 +1,3 @@
 @function px-to-percent($target-font-size, $base-font-size) {
-    @return percentage($target-font-size/$base-font-size)
+    @return calc($target-font-size/$base-font-size)
 }
