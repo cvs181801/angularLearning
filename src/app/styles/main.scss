@@ -10,7 +10,7 @@
     text-shadow: whitesmoke 2px 0 10px;
     text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $aqua-airy, 
         0 0 30px $aqua-airy, 0 0 40px $aqua-airy, 0 0 55px $aqua-airy, 0 0 75px $aqua-airy;
-    padding: 1.5em;
+    padding: 1.5em 1.5em 1.5em 20px;
 }
 
 .home-background {
@@ -27,7 +27,7 @@
     text-shadow: whitesmoke 2px 0 10px;
     text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $aqua-airy, 
         0 0 30px $aqua-airy, 0 0 40px $aqua-airy, 0 0 55px $aqua-airy, 0 0 75px $aqua-airy;
-    padding: 1.5em;
+    padding: 1.5em 1.5em 1.5em 20px;
     line-height: 2em;
 }
 
@@ -36,4 +36,8 @@
     color: $red-watermelon;
     font-family: $font-primary;
     font-weight: 700;
+}
+
+.nav-container {
+    background: $red-watermelon;
 }

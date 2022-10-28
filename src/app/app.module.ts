@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { environment } from '../environments/environment';
+import { environment } from 'environments/environment';
 import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
