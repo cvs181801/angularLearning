@@ -32,15 +32,15 @@ Add a Student
             <form [formGroup]="editForm" (ngSubmit)="updateStudentInfo(student)" novalidate>
                 <div>
                     <label>name</label>
-                        <input type="text" formControlName="name" placeholder="full name" required>
+                        <input type="text" formControlName="name" placeholder="full name" value ="student.name" required>
                 </div>
                 <div>
                     <label>email</label>
-                        <input type="email" formControlName="email" placeholder="email" required>
+                        <input type="email" formControlName="email" placeholder="email" value ="student.email" required>
                 </div>
                 <div>
                     <label>course</label>
-                        <select formControlName="course" placeholder="" required>
+                        <select formControlName="course" placeholder="" value ="student.course" required>
                             <option value="number1">number1</option>
                             <option value="number2">number2</option>
                             <option value="number1andnumber2">number1andnumber2</option>

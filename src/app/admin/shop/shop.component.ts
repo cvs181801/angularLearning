@@ -69,12 +69,9 @@ export class ShopComponent implements OnInit {
     this.showEditForm = !this.showEditForm; 
   }
 
-  updateStudentInfo(Student: {id: string; name: string; email: string; course: string; fees: string}) {
-    //if update btn clicked, render a reactive form for just that student where user and add new info
-    //(a way to add a boolean value just for that index of the array?)
-    //OR just open a modal, which takes in the student data for that student
-    //form will need a save btn . when that is clicked, the data should be updated
-    this.userService.updateStudent(Student, Student.id)
+  updateStudentInfo(student: {id: string; name: string; email: string; course: string; fees: string}) {
+    console.log('check this student obj', student)
+    this.userService.updateStudent(student, student.id)
   }
 
   deleteStudentInfo(Student: {id: string; name: string; email: string; course: string; fees: string}) {
