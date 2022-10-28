@@ -38,9 +38,7 @@ export class AppComponent implements OnInit{
 //an nvm command in bash terminal.  however, for simpliciy sake, developing this on my mac so I can avoid needing 
 //to deal with nvm on windows.
 //I had to install specific versions of node, angular cli and firebase to get around a dependency conflict.
-
-//** need to upload angular TS files into dev tools */
-//**need to figure out how to access the blog system from firebaseDB */
+//we define the CRUD methods to manage our data in a service file. This way, we can use the methods throughout the application
 
 //3. Re: Observables in angular.  Observables are declarative —that is, you define a function for publishing values, 
 //but it is not executed until a consumer subscribes to it. The subscribed consumer then receives notifications 
@@ -51,3 +49,6 @@ export class AppComponent implements OnInit{
 //5. for the 'shop' part of the site, I am thinking just a very simple CRUD something just to get a little practice with this syntax
 
 //6. the shopping cart wont be a real shopping cart mostly because we dont have shopping cart in new ros/prl 
+
+//7. styles using scss (Sass). must add the correct file path to the main sass file.  In that main sass file, you must import the other related 
+//sass file paths.  in angular.json, add the stylePreprocessorOptions under the style file path.  

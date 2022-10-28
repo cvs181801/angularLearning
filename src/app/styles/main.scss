@@ -1,0 +1,10 @@
+@import 'abstracts/variables';
+@import 'base/functions.scss';
+@import 'base/reset';
+
+.foo {
+    font-size: $font-size-sm;
+    color: $red-watermelon;
+    font-family: $font-primary;
+    font-weight: 700;
+}
