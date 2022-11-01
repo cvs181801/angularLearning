@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 //import * as firebase from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { catchError, tap } from 'rxjs/operators' 
 
 import { Student } from './student.model';
 
@@ -68,7 +69,12 @@ export class UserService implements CanActivate {
       this.angularFirestore
         .collection("student-collection")
         .add(student).then(response => { 
-          console.log(response)}, error=> reject(error)
+          console.log(response)
+        }, 
+        error=> 
+        //reject(error) 
+          console.log(error) 
+          //catchError((error) => {console.log(error)})
         )
     })
   }

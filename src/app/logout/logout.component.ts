@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.sass']
 })
 export class LogoutComponent implements OnInit {
-  userLoggedIn = this.userService.userLoggedIn;
-  
+  userLoggedIn:boolean = this.userService.userLoggedIn;
+
   constructor(private userService: UserService, private router: Router) { }
 
   clickToLogout() {
     this.userService.logout();
     this.router.navigate(['/login'])
+    this.userLoggedIn = this.userService.userLoggedIn;
   }
 
   ngOnInit(): void {
