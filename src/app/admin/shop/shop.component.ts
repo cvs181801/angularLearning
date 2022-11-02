@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../login/adminShared/user.service';
 import { Student } from '../login/adminShared/student.model'
+import { Joke } from '../login/adminShared/joke.model'
 
 @Component({
   selector: 'app-shop',
@@ -14,9 +15,12 @@ export class ShopComponent implements OnInit {
   public editForm: FormGroup;
   
   Students: Student[]; 
+  Joke: Joke;
+  formattedJoke: {id: string, icon_url: string, url: string, value: string};
   updatedStudents: Student[];
   studentsExist: boolean = false;
   showEditForm: boolean = false;
+  jokeExists: boolean = false;
   
   constructor(public userService: UserService, public formBuilder: FormBuilder) { 
     // let formArr = [this.studentForm, this.editForm];
@@ -43,6 +47,23 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.userService.fetchJokes().subscribe((res: any)=> {
+      console.log(res)
+      //this.formattedJoke = Object.create(res) as Joke;
+      this.formattedJoke = {
+        id: res.id, 
+        icon_url: res.icon_url, 
+        url: res.url, 
+        value: res.value
+      }
+      this.jokeExists = true;
+      console.log('formatted joke', this.formattedJoke)
+      return this.formattedJoke;
+      
+    })
+
+
     this.userService.getStudentList().subscribe((res: any)=>{
       this.Students = res.map(item => {
       return {
@@ -70,7 +91,7 @@ export class ShopComponent implements OnInit {
   }
 
   updateStudentInfo(student: {id: string; name: string; email: string; course: string; fees: string}) {
-    console.log('check this student obj', student)
+    //console.log('check this student obj', student)
     this.userService.updateStudent(student, student.id)
   }
 

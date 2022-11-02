@@ -11,6 +11,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { environment } from 'environments/environment';
 import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -32,6 +33,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule

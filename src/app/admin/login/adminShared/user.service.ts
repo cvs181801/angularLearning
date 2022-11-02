@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 //import * as firebase from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { catchError, tap } from 'rxjs/operators' 
 
 import { Student } from './student.model';
@@ -14,7 +15,12 @@ export class UserService implements CanActivate {
   Students: Student[]; 
   studentsExist: boolean = false;
 
-  constructor( private router: Router, private angularFirestore: AngularFirestore ){}
+  constructor( private router: Router, private angularFirestore: AngularFirestore, private http: HttpClient ){}
+
+  chuckNorrisUrl: string = 'https://api.chucknorris.io/jokes/random';
+  fetchJokes() {
+    return this.http.get(`${this.chuckNorrisUrl}`)
+  }
 
   //canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
     canActivate():boolean {

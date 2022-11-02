@@ -56,3 +56,15 @@ Add a Student
 </ng-container>   
 <ng-template #showThis>Loading student data...</ng-template> 
 
+<ng-container *ngIf="jokeExists, else showThis">
+    <div *ngFor="let item of formattedJoke | keyvalue">
+        <!-- <b>{{item.key}}: </b> <b>{{item.value}}</b> -->
+        <img src="{{item.icon_url}}">
+        <p>{{item.value}}</p>
+    </div>
+</ng-container>
+<ng-template #showThis>Loading joke...</ng-template> 
+
+
+
+
